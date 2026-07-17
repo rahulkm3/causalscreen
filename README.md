@@ -118,3 +118,21 @@ flowchart LR
     Gn -.-> L
     B --> M["Missing causal power<br/>= drift early-warning alarm"]
 ```
+
+## Pipeline
+
+```mermaid
+flowchart LR
+    A[Training data] --> B["CausalScreen<br/>residual-correlation test<br/>+ iterative peeling"]
+    B -->|"ranked causal factors<br/>(decreasing causal power)"| C["Partition data on<br/>top causal factors<br/>(strength x significance rule)"]
+    C --> G1[(Subgroup 1)]
+    C --> G2[(Subgroup 2)]
+    C --> Gn[(Subgroup n)]
+    Q[Query point] --> R{inside a<br/>subgroup?}
+    R -->|"yes (interpolation)"| L["Train ONE local model<br/>in that subgroup only<br/>(Optimisation 2)"]
+    R -->|"no (extrapolation)"| F["Global model fallback<br/>(retains significance &<br/>generalization)"]
+    G1 -.-> L
+    G2 -.-> L
+    Gn -.-> L
+    B --> M["Missing causal power<br/>= drift early-warning alarm"]
+```
