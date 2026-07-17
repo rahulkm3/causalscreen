@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "causalscreen"
-version = "0.1.0"
+version = "0.2.0"
 description = "Residual-correlation causal screening with iterative peeling, localized modeling, and drift early-warning"
 authors = [{name = "Rahul Kumar Mandal", email = "rahulkm.jobs@gmail.com"}]
 readme = "README.md"

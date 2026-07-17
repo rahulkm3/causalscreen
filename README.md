@@ -7,7 +7,7 @@ drift alarm.
 Companion code for: **R. K. Mandal, "Residual-Correlation Causal Screening with
 Localized Supervised Modeling: A Practical Framework for Confounder
 Identification, Error Reduction, and Drift Early-Warning"** (working paper,
-2026; research 2022–present). Paper PDF in `/paper`.
+2026; research 2022–present). Paper PDF in `/paper` · Preprint: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7135078
 
 ## What it does
 
@@ -78,6 +78,16 @@ Layered over Random Forest, OLS and Prophet models in commercial deployments
 error by 65–85%. Client data is not releasable; this repo's synthetic
 benchmarks are the reproducible counterpart. DoWhy/EconML comparison suite:
 in progress.
+
+## Performance (v0.2.0)
+
+Screening uses a single precision-matrix inversion per round (FWL-equivalent,
+with an exact residual-regression fallback for ill-conditioned designs) —
+~77x faster than the reference implementation at n=5000, p=40. Partitioned
+prediction indexes cells at fit time and caches local models — ~409x faster
+on batch prediction (20k train / 5k queries). Equivalence to the reference
+implementation is enforced in the test suite to ~1e-8 (38 tests; reference
+implementation vendored in `tests/`).
 
 ## License
 
