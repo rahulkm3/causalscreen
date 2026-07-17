@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "causalscreen"
+version = "0.1.0"
+description = "Residual-correlation causal screening with iterative peeling, localized modeling, and drift early-warning"
+authors = [{name = "Rahul Kumar Mandal", email = "rahulkm.jobs@gmail.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies = ["numpy", "scipy", "scikit-learn"]
+
+[project.urls]
+Homepage = "https://github.com/rahulkm3/causalscreen"
+
+[tool.setuptools.packages.find]
+include = ["causalscreen*"]
