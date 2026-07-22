@@ -1,4 +1,4 @@
-# causalscreen
+# causalscreen (-> pip install causalscreen)
 
 Residual-correlation causal screening with iterative peeling, causal-factor
 partitioning with inference-time local models, and a missing-causal-power
